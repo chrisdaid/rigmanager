@@ -1,0 +1,165 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(28, 28, 28);
+  color: #fff;
+  font-family: sans-serif;
+}
+
+.nav {
+  background: rgb(10, 48, 145);
+  border-radius: 15px;
+  font-size: 1.125rem;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nav ul li {
+  margin: 20px 0;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  padding: 20px;
+  margin: 0;
+  color: #fff;
+  font-weight: 600;
+}
+
+.nav ul li a:hover {
+  background: rgb(40, 46, 243);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  min-height: 40vh;
+  margin: 30px;
+}
+
+main h1 {
+  font-size: 2.25rem;
+}
+
+main h2 {
+  font-size: 1.25rem;
+  text-align: center;
+  padding: 10px;
+}
+
+main h2 a {
+  color: #fff;
+}
+
+/* FORM input text */
+
+form {
+  padding: 15px;
+  /* background-color: red; */
+}
+
+form .select-pool {
+  /* background-color: red; */
+  text-align: center;
+  font-size: 1.075rem;
+  padding: 10px;
+}
+
+form .select-pool input[type="radio"] {
+  transform: scale(1.33);
+  margin: 0 5px;
+}
+
+form .select-pool label {
+  /* background-color: blue; */
+  padding: 10px;
+}
+
+form input,
+form button {
+  font-size: 1.125rem;
+  font-family: sans-serif;
+  padding: 7px;
+  outline: none;
+  border: 3px solid rgba(10, 48, 145, 0.3);
+}
+
+form input {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+form input:focus {
+  border: 3px solid rgba(10, 48, 145, 0.6);
+}
+
+form button {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  cursor: pointer;
+  background: rgb(40, 46, 243);
+
+  color: #fff;
+  font-weight: 500;
+}
+
+form button:hover {
+  background: rgba(40, 46, 243, 0.85);
+}
+
+form button:active {
+  background: rgba(40, 46, 243, 0.65);
+}
+
+/* More info section 3 columns 1 row   */
+
+#extra-info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 30px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.col-container {
+  margin: 0 auto;
+  max-width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.col {
+  font-size: 1.125rem;
+  font-weight: 600;
+  padding: 20px;
+  /* background-color: blue;/ */
+  border-radius: 5px;
+}
+
+.col-2 {
+  margin-left: 10px;
+}
+
+.col-3 {
+  margin-left: 10px;
+}
+
+/* progress bar  */
+
+progress {
+  width: 100%;
+}

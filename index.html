@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hashrate Checker</title>
+    <link rel="stylesheet" href="./style/style.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <div class="nav">
+      <nav>
+        <ul>
+          <li><a href="miner.html">Miner</a></li>
+          <li><a href="#">Get Started</a></li>
+          <li><a href="#">Updates</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <main>
+      <h1>Greetings!</h1>
+      <h2>Select your pool and enter your miner address below.</h2>
+      <form action="">
+        <div class="select-pool">
+          <input type="radio" id="ethermine" name="pool" />
+          <label for="ethermine">Ethermine</label>
+          <input type="radio" id="flexpool" name="pool" />
+          <label for="flexpool">Flexpool</label>
+        </div>
+        <input
+          type="text"
+          id="miner-address"
+          placeholder="miner address (0x...)"
+        />
+        <button>Go</button>
+      </form>
+    </main>
+
+    <!-- Extra information 3 columns, 1 row -->
+
+    <section id="extra-info">
+      <div class="col-container">
+        <div class="col col-1" >BTC: <span id="btc-price"></span></div>
+        <div class="col col-2">ETH: <span id="eth-price"></span></div>
+        <div class="col col-3">BNB: <span id="bnb-price"></span></div>
+      </div>
+      <div>
+        <progress value="0" max="960" id="progressBar"></progress>
+      </div>
+    </section>
+    <section id="get-started">
+      <div class="get-started-container">
+        <h3>Don't know where to start?</h1>
+        <h4>Click <a href="#">get started</a>. We'll guide you through it.</h2>
+      </div>
+    </section>
+
+
+    <script src="stats.js"></script>
+  </body>
+</html>
