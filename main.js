@@ -20,10 +20,10 @@ fetch(
   .then((res) => res.json())
   .then((data) => {
     avgHash.innerHTML = `${truncToTwo(
-      data.result.averageEffectiveHashrate / 1000000
+      (data.result.averageEffectiveHashrate * 1.00001) / 1000000
     )}MH`;
     curHash.innerHTML = `${truncToTwo(
-      data.result.currentEffectiveHashrate / 1000000
+      (data.result.currentEffectiveHashrate * 1.00001) / 1000000
     )}MH`;
   });
 
