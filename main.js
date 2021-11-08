@@ -27,6 +27,8 @@ fetch(
     )}MH`;
   });
 
+// staleShares, validShares, invalidShares
+
 const truncToTwo = (num) => {
   num = num.toString().split("");
   let indexOfDot = num.indexOf(".");

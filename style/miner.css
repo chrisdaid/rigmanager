@@ -12,12 +12,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  font-family: "Open Sans", sans-serif;
 }
 
 .card {
   background: rgb(10, 48, 145);
   border-radius: 30px;
-  /* min-width: 600px; */
   padding: 30px;
   margin: 40px;
   display: flex;
@@ -61,8 +62,6 @@ body {
 /* Bottom section 'view on flexpool'  */
 
 .bottom-of-card {
-  /* background-color: pink; */
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,4 +73,17 @@ body {
   padding: 3px;
   border-radius: 5px;
   font-style: italic;
+}
+
+/* testing delete later */
+
+.more-cards {
+  background-color: #fff;
+  min-height: 300px;
+  width: 100%;
+  margin: 1em 1.25em;
+  /* padding: 1em 1.25em; */
+  background-color: red;
+  border-radius: 5px;
+  border: 5px solid blue;
 }
