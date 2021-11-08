@@ -190,3 +190,33 @@ form button:active {
     width: 100%;
   }
 }
+
+/* Get started section*/
+
+#get-started {
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 30px;
+  text-align: center;
+  padding: 20px;
+  border: 2px solid black;
+}
+
+#get-started a {
+  color: #f46036;
+}
+
+/* FAQ  */
+
+.faq-container {
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 30px;
+  padding: 20px;
+}
+
+.faq-container details {
+  font-size: 1.125em;
+}
+
+.faq-container details summary {
+  font-size: 1em;
+}
