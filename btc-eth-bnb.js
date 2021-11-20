@@ -38,4 +38,4 @@ function myTimer() {
       bnbPrice.innerText = `$${truncToTwo(data[2].price)}`;
     });
 }
-var myVar = setInterval(myTimer, 30000);
+var myVar = setInterval(myTimer, 29800);
