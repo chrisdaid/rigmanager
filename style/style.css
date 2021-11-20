@@ -44,7 +44,9 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.1);
+  /* background-color: rgba(255, 255, 255, 0.1); */
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
   min-height: 40vh;
   margin: 30px;
 }
@@ -131,7 +133,9 @@ form button:active {
   flex-direction: column;
   text-align: center;
   margin: 30px;
-  background-color: rgba(255, 255, 255, 0.1);
+  /* background-color: rgba(255, 255, 255, 0.1); */
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
 }
 
 .col-container {
@@ -146,7 +150,6 @@ form button:active {
   font-size: 1.125rem;
   font-weight: 600;
   padding: 20px;
-  /* background-color: blue;/ */
   border-radius: 5px;
 }
 
@@ -194,11 +197,12 @@ form button:active {
 /* Get started section*/
 
 #get-started {
-  background-color: rgba(255, 255, 255, 0.1);
+  /* background-color: rgba(255, 255, 255, 0.1); */
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
   margin: 30px;
   text-align: center;
   padding: 20px;
-  border: 2px solid black;
 }
 
 #get-started a {
@@ -208,15 +212,50 @@ form button:active {
 /* FAQ  */
 
 .faq-container {
-  background-color: rgba(255, 255, 255, 0.1);
+  /* background-color: rgba(255, 255, 255, 0.1); */
+  /* border: 2px solid rgba(255, 255, 255, 0.1); */
+  border-radius: 5px;
   margin: 30px;
-  padding: 20px;
+}
+
+.faq-container h2 {
+  text-align: center;
 }
 
 .faq-container details {
-  font-size: 1.125em;
+  cursor: pointer;
+}
+
+.faq-container summary:hover {
+  color: #f46036;
 }
 
 .faq-container details summary {
-  font-size: 1em;
+  font-size: 1.125em;
+  font-weight: 600;
+  list-style-type: none;
+}
+
+.faq-container details[open] summary {
+  margin-bottom: 10px;
+}
+
+.question-border-top {
+  /* background-color: red; */
+  box-sizing: border-box;
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  border-right: 2px solid rgba(255, 255, 255, 0.1);
+  padding: 10px 20px;
+}
+
+.question-1 {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.question-4 {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
