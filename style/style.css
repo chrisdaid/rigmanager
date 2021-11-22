@@ -1,3 +1,15 @@
+:root {
+  --bgc: rgb(28, 28, 28);
+  --lightbgc: rgb(41, 40, 40);
+  --darkblue: #161e54;
+  --hvrdarkblue: #343c6c;
+  --lightblue: #88e0ef;
+  --hvrlightblue: ;
+  --red: #ff5151;
+  --orange: #ff9b6a;
+  --10percwhite: rgba(255, 255, 255, 0.1);
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -5,13 +17,13 @@
 }
 
 body {
-  background-color: rgb(28, 28, 28);
+  background-color: var(--bgc);
   color: #fff;
   font-family: sans-serif;
 }
 
 .nav {
-  background: rgb(10, 48, 145);
+  background: var(--darkblue);
   border-radius: 15px;
   font-size: 1.125rem;
 }
@@ -20,11 +32,12 @@ body {
   list-style: none;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
 }
 
 .nav ul li {
-  margin: 20px 0;
+  margin: 25px 0;
 }
 
 .nav ul li a {
@@ -36,23 +49,53 @@ body {
 }
 
 .nav ul li a:hover {
-  background: rgb(40, 46, 243);
+  background: #222958;
 }
+
+@keyframes spinner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#logo {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.spin {
+  animation: spinner 1s linear infinite;
+}
+
+#logo-link {
+  width: 55px;
+  border-radius: 50%;
+  margin: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main  */
 
 main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* background-color: rgba(255, 255, 255, 0.1); */
   border: 2px solid rgba(255, 255, 255, 0.1);
   border-radius: 5px;
   min-height: 40vh;
   margin: 30px;
+  text-align: center;
 }
 
 main h1 {
   font-size: 2.25rem;
+  padding: 20px;
 }
 
 main h2 {
@@ -69,11 +112,9 @@ main h2 a {
 
 form {
   padding: 15px;
-  /* background-color: red; */
 }
 
 form .select-pool {
-  /* background-color: red; */
   text-align: center;
   font-size: 1.075rem;
   padding: 10px;
@@ -85,7 +126,6 @@ form .select-pool input[type="radio"] {
 }
 
 form .select-pool label {
-  /* background-color: blue; */
   padding: 10px;
 }
 
@@ -107,22 +147,30 @@ form input:focus {
   border: 3px solid rgba(10, 48, 145, 0.6);
 }
 
+.input-address-container {
+  filter: drop-shadow(0 0 0.25rem white);
+}
+
+#miner-address {
+  margin-top: 10px;
+}
+
 form button {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   cursor: pointer;
-  background: rgb(40, 46, 243);
-
+  background: var(--darkblue);
   color: #fff;
   font-weight: 500;
+  margin-left: -5px;
 }
 
 form button:hover {
-  background: rgba(40, 46, 243, 0.85);
+  background: var(--hvrdarkblue);
 }
 
 form button:active {
-  background: rgba(40, 46, 243, 0.65);
+  background: var(--actdrkblue);
 }
 
 /* More info section 3 columns 1 row   */
@@ -133,8 +181,7 @@ form button:active {
   flex-direction: column;
   text-align: center;
   margin: 30px;
-  /* background-color: rgba(255, 255, 255, 0.1); */
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid var(--10percwhite);
   border-radius: 5px;
 }
 
@@ -164,7 +211,7 @@ form button:active {
 /* progress bar  */
 
 .progress {
-  background-color: rgb(229, 233, 235);
+  background-color: var(--lightbgc);
   height: 0.4em;
   position: relative;
   width: 100%;
@@ -197,8 +244,7 @@ form button:active {
 /* Get started section*/
 
 #get-started {
-  /* background-color: rgba(255, 255, 255, 0.1); */
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid var(--10percwhite);
   border-radius: 5px;
   margin: 30px;
   text-align: center;
@@ -206,20 +252,19 @@ form button:active {
 }
 
 #get-started a {
-  color: #f46036;
+  color: var(--orange);
 }
 
 /* FAQ  */
 
 .faq-container {
-  /* background-color: rgba(255, 255, 255, 0.1); */
-  /* border: 2px solid rgba(255, 255, 255, 0.1); */
   border-radius: 5px;
   margin: 30px;
 }
 
 .faq-container h2 {
   text-align: center;
+  margin-bottom: 5px;
 }
 
 .faq-container details {
@@ -227,7 +272,7 @@ form button:active {
 }
 
 .faq-container summary:hover {
-  color: #f46036;
+  color: var(--orange);
 }
 
 .faq-container details summary {
@@ -243,9 +288,9 @@ form button:active {
 .question-border-top {
   /* background-color: red; */
   box-sizing: border-box;
-  border-top: 2px solid rgba(255, 255, 255, 0.1);
-  border-left: 2px solid rgba(255, 255, 255, 0.1);
-  border-right: 2px solid rgba(255, 255, 255, 0.1);
+  border-top: 2px solid var(--10percwhite);
+  border-left: 2px solid var(--10percwhite);
+  border-right: 2px solid var(--10percwhite);
   padding: 10px 20px;
 }
 
@@ -255,7 +300,7 @@ form button:active {
 }
 
 .question-4 {
-  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 2px solid var(--10percwhite);
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
