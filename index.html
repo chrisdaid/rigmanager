@@ -5,9 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hashrate Checker</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./style/style.css" />
   </head>
   <body>
@@ -15,6 +18,9 @@
     <div class="nav">
       <nav>
         <ul>
+          <a href="./index.html" id="logo-link">
+            <img src="/assets/gpulogo.svg" id="logo" alt="logo" class=""/>
+          </a>
           <li><a href="miner.html">Miner</a></li>
           <li><a href="#">Get Started</a></li>
           <li><a href="#">Updates</a></li>
@@ -22,8 +28,9 @@
       </nav>
     </div>
 
+    <!-- heading area -->
     <main>
-      <h1>Greetings!</h1>
+      <h1>Don't Pay for Hive. Manage Your Rigs for Free.</h1>
       <h2>Select your pool and enter your miner address below.</h2>
       <form action="">
         <div class="select-pool">
@@ -32,14 +39,16 @@
           <input type="radio" id="flexpool" name="pool" />
           <label for="flexpool">Flexpool</label>
         </div>
-        <input
+        <div class="input-address-container">
+          <input
           type="text"
           id="miner-address"
           placeholder="miner address (0x...)"
-        />
-        <button>Go</button>
+          />
+          <button>Go</button>
+        </div>
       </form>
-    </main>
+    </main> 
 
     <!-- Extra information 3 columns, 1 row -->
 
@@ -51,7 +60,7 @@
       </div>
       <div>
         <div class="progress">
-          <div class="progress-bar-custom" style="--bg: #F46036;"></div>
+          <div class="progress-bar-custom" style="--bg: #FF9B6A;"></div>
         </div>
       </div>
     </section>
@@ -82,6 +91,7 @@
         </details>
       </div>
     </section>
+    <script src="animate-logo.js"></script>
     <script src="btc-eth-bnb.js"></script>
   </body>
 </html>
