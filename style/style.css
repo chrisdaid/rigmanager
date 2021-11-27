@@ -86,7 +86,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid var(--10percwhite);
   border-radius: 5px;
   min-height: 40vh;
   margin: 30px;
@@ -148,7 +148,7 @@ form input:focus {
 }
 
 .input-address-container {
-  filter: drop-shadow(0 0 0.25rem white);
+  filter: drop-shadow(0rem 0rem 0.25rem var(--hvrdarkblue));
 }
 
 #miner-address {
@@ -303,4 +303,51 @@ form button:active {
   border-bottom: 2px solid var(--10percwhite);
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+}
+
+/* footer */
+
+footer {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 200px;
+  padding: 30px;
+  /* background-color: pink; */
+}
+
+.top-footer {
+  width: 100%;
+  height: 75%;
+  /* background-color: blue; */
+  display: flex;
+  justify-content: center;
+}
+
+.top-footer .left {
+  background-color: red;
+  text-align: center;
+  width: 100%;
+}
+
+.top-footer .middle {
+  background-color: orange;
+  text-align: center;
+  width: 100%;
+}
+
+.top-footer .right {
+  text-align: center;
+  width: 100%;
+  background-color: blue;
+}
+
+.bottom-footer {
+  display: flex;
+  width: 100%;
+  height: 25%;
+  /* background-color: red; */
+  justify-content: center;
+  align-items: center;
 }
