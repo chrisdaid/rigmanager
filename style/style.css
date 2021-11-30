@@ -312,7 +312,7 @@ footer {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 200px;
+  height: 350px;
   padding: 30px;
   /* background-color: pink; */
 }
@@ -326,21 +326,35 @@ footer {
 }
 
 .top-footer .left {
-  background-color: red;
+  /* background-color: red; */
   text-align: center;
-  width: 100%;
+  width: 60%;
+  border-right: 2px solid white;
+}
+
+.top-footer .left p {
+  text-align: left;
+  letter-spacing: 2px;
+  color: var(--lightblue);
+}
+
+.top-footer .left h3 {
+  font-size: 2rem;
+  text-align: left;
+  letter-spacing: 0.75px;
 }
 
 .top-footer .middle {
-  background-color: orange;
+  /* background-color: orange; */
   text-align: center;
-  width: 100%;
+  width: 20%;
+  border-left: 2px solid white;
 }
 
 .top-footer .right {
   text-align: center;
-  width: 100%;
-  background-color: blue;
+  width: 20%;
+  /* background-color: blue; */
 }
 
 .bottom-footer {
