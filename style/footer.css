@@ -1,0 +1,161 @@
+:root {
+  --bgc: rgb(28, 28, 28);
+  --lightbgc: rgb(41, 40, 40);
+  --darkblue: #161e54;
+  --hvrdarkblue: #343c6c;
+  --lightblue: #88e0ef;
+  --hvrlightblue: ;
+  --red: #ff5151;
+  --orange: #ff9b6a;
+  --white: #fff;
+  --10percwhite: rgba(255, 255, 255, 0.1);
+}
+
+/* footer */
+
+footer {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 150px;
+  /* background-color: pink; */
+}
+
+.top-footer {
+  height: 75%;
+  margin: 30px;
+  /* background-color: blue; */
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+.top-footer .left {
+  /* background-color: pink; */
+  width: 56%;
+  border-right: 2px solid var(--orange);
+}
+
+.top-footer .left p {
+  text-align: left;
+  letter-spacing: 2px;
+  color: var(--lightblue);
+}
+
+.top-footer .left h3 {
+  font-size: 2rem;
+  text-align: left;
+  letter-spacing: 0.75px;
+}
+
+/* Try now button  */
+
+.top-footer .left #try-now-btn {
+  background: rgba(0, 0, 0, 0);
+  color: var(--lightblue);
+  border: 4px solid var(--lightblue);
+  font-size: 1em;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  padding: 6px 30px;
+  cursor: pointer;
+  margin-top: 2em;
+  transition: all 0.3s ease-in-out;
+}
+
+.top-footer .left #try-now-btn:hover {
+  box-shadow: inset 8.1em 0 0 0 var(--white);
+  color: var(--bgc);
+}
+
+.top-footer .middle {
+  /* background-color: orange; */
+  width: 22%;
+  border-left: 1px solid var(--orange);
+  border-right: 2px solid var(--orange);
+}
+
+.top-footer .middle ul {
+  list-style-type: none;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  overflow: hidden;
+}
+
+.top-footer .middle ul li {
+  margin: 0.55rem;
+}
+
+.top-footer .middle ul li a {
+  text-decoration: none;
+  color: var(--white);
+  display: inline-block;
+  position: relative;
+  padding-bottom: 1px;
+}
+
+.top-footer .middle ul li a:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--lightblue);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.top-footer .middle ul li a:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.top-footer .right {
+  width: 22%;
+  padding: 20px;
+  border-left: 1px solid var(--orange);
+
+  /* background-color: blue; */
+}
+
+.top-footer .socials {
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  overflow: hidden;
+}
+
+.top-footer .socials .twitter,
+.linkedin,
+.github {
+  margin: 0.75rem;
+}
+
+.socials a {
+  text-decoration: none;
+  color: var(--white);
+  transition: all 0.2s ease;
+}
+
+.socials a:hover {
+  transform: scale(1.2);
+}
+
+.bottom-footer {
+  display: flex;
+  width: 100%;
+  height: 25%;
+  font-size: 0.85em;
+  /* background-color: red; */
+  justify-content: center;
+  align-items: center;
+}
