@@ -8,12 +8,14 @@ body {
   background-color: rgb(28, 28, 28);
   color: #fff;
   font-family: sans-serif;
-  height: 100vh;
+  font-family: "Open Sans", sans-serif;
+}
+
+main {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-family: "Open Sans", sans-serif;
 }
 
 .card {
@@ -77,13 +79,12 @@ body {
 
 /* testing delete later */
 
-.more-cards {
+/* .more-cards {
   background-color: #fff;
   min-height: 300px;
   width: 100%;
   margin: 1em 1.25em;
-  /* padding: 1em 1.25em; */
   background-color: red;
   border-radius: 5px;
   border: 5px solid blue;
-}
+} */
