@@ -5,43 +5,110 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hashrate Checker</title>
+    <link rel="stylesheet" href="./style/navbar.css" />
+    <link rel="stylesheet" href="./style/footer.css" />
     <link rel="stylesheet" href="./style/miner.css" />
+    <script
+      src="https://kit.fontawesome.com/2eaa823958.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <div class="container">
-      <div class="square-1">1</div>
-      <div class="square-2">2</div>
-      <div class="square-3">3</div>
+    <!-- NAVBAR -->
+    <div class="nav">
+      <nav>
+        <ul>
+          <a href="./index.html" id="logo-link">
+            <img src="./assets/gpulogobl.svg" id="logo" alt="logo" class="" />
+          </a>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">Get Started</a></li>
+          <li><a href="#">Updates</a></li>
+        </ul>
+      </nav>
     </div>
 
-    <div class="card">
-      <div class="main-cards">
-        <div class="left-card left-align">
-          <h1>Pool: <span id="pool-name"></span></h1>
-          <h2>Eth Price: <span id="eth-price">-</span></h2>
-          <h2>Balance: <span id="balance">-</span></h2>
-          <h2>Current Hash: <span id="cur-hash">-</span></h2>
-          <h2>Average Hash: <span id="avg-hash">-</span></h2>
+    <!-- main  -->
+    <main>
+      <div class="container">
+        <div class="square-1">1</div>
+        <div class="square-2">2</div>
+        <div class="square-3">3</div>
+      </div>
+
+      <div class="card">
+        <div class="main-cards">
+          <div class="left-card left-align">
+            <h1>Pool: <span id="pool-name"></span></h1>
+            <h2>Eth Price: <span id="eth-price">-</span></h2>
+            <h2>Balance: <span id="balance">-</span></h2>
+            <h2>Current Hash: <span id="cur-hash">-</span></h2>
+            <h2>Average Hash: <span id="avg-hash">-</span></h2>
+          </div>
+          <div class="right-card left-align">
+            <h2>Eth Price: <span id="eth-price">-</span></h2>
+            <h2>Balance: <span id="balance">-</span></h2>
+            <h2>Current Hash: <span id="cur-hash">-</span></h2>
+            <h2>Average Hash: <span id="avg-hash">-</span></h2>
+          </div>
         </div>
-        <div class="right-card left-align">
-          <h2>Eth Price: <span id="eth-price">-</span></h2>
-          <h2>Balance: <span id="balance">-</span></h2>
-          <h2>Current Hash: <span id="cur-hash">-</span></h2>
-          <h2>Average Hash: <span id="avg-hash">-</span></h2>
+        <div class="bottom-of-card"><a href="#">View miner on Flexpool</a></div>
+      </div>
+
+      <div class="more-cards card">
+        test
+        <!-- <div class="left-card-1">
+          
+        </div>
+        <div class="right-card-1">
+          
+        </div> -->
+      </div>
+    </main>
+
+    <!-- Footer  -->
+
+    <footer>
+      <div class="top-footer">
+        <div class="left">
+          <p>IT'S FREE.</p>
+          <h3>It's Hive, But Better.</h3>
+          <button id="try-now-btn">Try Now</button>
+        </div>
+        <div class="middle">
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="miner.html">Miner</a></li>
+            <li><a href="#">Get Started</a></li>
+            <li><a href="#">Updates</a></li>
+          </ul>
+        </div>
+        <div class="right socials">
+          <div class="twitter">
+            <a
+              href="https://twitter.com/sirhchris"
+              class="fab fa-twitter fa-lg"
+              target="_blank"
+            ></a>
+          </div>
+          <div class="linkedin">
+            <a
+              href="https://linkedin.com/in/chrisdaid"
+              class="fab fa-linkedin-in fa-lg"
+              target="_blank"
+            ></a>
+          </div>
+          <div class="github">
+            <a
+              href="https://github.com/chrisdaid/rigmanager"
+              class="fab fa-github fa-lg"
+              target="_blank"
+            ></a>
+          </div>
         </div>
       </div>
-      <div class="bottom-of-card"><a href="#">View miner on Flexpool</a></div>
-    </div>
-
-    <div class="more-cards card">
-      test
-      <!-- <div class="left-card-1">
-
-      </div>
-      <div class="right-card-1">
-
-      </div> -->
-    </div>
+      <div class="bottom-footer">Crafted with 💛 by Christopher Dai</div>
+    </footer>
     <script src="main.js"></script>
   </body>
 </html>
