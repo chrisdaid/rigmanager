@@ -61,6 +61,14 @@ main {
   text-align: left;
 }
 
+#conversion-btn {
+  /* background-color: red; */
+  text-align: center;
+  /* font-size: 1.25em; */
+  margin-left: 0.5em;
+  cursor: pointer;
+}
+
 /* Bottom section 'view on flexpool'  */
 
 .bottom-of-card {
@@ -76,15 +84,3 @@ main {
   border-radius: 5px;
   font-style: italic;
 }
-
-/* testing delete later */
-
-/* .more-cards {
-  background-color: #fff;
-  min-height: 300px;
-  width: 100%;
-  margin: 1em 1.25em;
-  background-color: red;
-  border-radius: 5px;
-  border: 5px solid blue;
-} */
