@@ -8,13 +8,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./style/navbar.css">
-    <link rel="stylesheet" href="./style/footer.css">
-    <link rel="stylesheet" href="./style/style.css">
-    <script src="https://kit.fontawesome.com/2eaa823958.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style/navbar.css" />
+    <link rel="stylesheet" href="./style/footer.css" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <script
+      src="https://kit.fontawesome.com/2eaa823958.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <!-- NAVBAR -->
@@ -22,8 +25,9 @@
       <nav>
         <ul>
           <a href="./index.html" id="logo-link">
-            <img src="./assets/gpulogobl.svg" id="logo" alt="logo" class=""/>
+            <img src="./assets/logo.svg" id="logo" alt="logo" class="" />
           </a>
+          <li><a href="index.html">Home</a></li>
           <li><a href="miner.html">Miner</a></li>
           <li><a href="#">Get Started</a></li>
           <li><a href="#">Updates</a></li>
@@ -44,32 +48,32 @@
         </div>
         <div class="input-address-container">
           <input
-          type="text"
-          id="miner-address"
-          placeholder="miner address (0x...)"
+            type="text"
+            id="miner-address"
+            placeholder="miner address (0x...)"
           />
           <button>Go</button>
         </div>
       </form>
-    </main> 
+    </main>
 
     <!-- Extra information 3 columns, 1 row -->
 
     <section id="extra-info">
       <div class="col-container">
-        <div class="col col-1" >BTC: <span id="btc-price"></span></div>
+        <div class="col col-1">BTC: <span id="btc-price"></span></div>
         <div class="col col-2">ETH: <span id="eth-price"></span></div>
         <div class="col col-3">BNB: <span id="bnb-price"></span></div>
       </div>
       <div>
         <div class="progress">
-          <div class="progress-bar-custom" style="--bg: #FF9B6A;"></div>
+          <div class="progress-bar-custom" style="--bg: #ff9b6a"></div>
         </div>
       </div>
     </section>
     <section id="get-started">
       <div class="get-started-container">
-        <h3>Don't know where to start?</h1>
+        <h3>Don't know where to start?</h3>
         <h4>Click <a href="#">get started</a>. We'll guide you through it.</h4>
       </div>
     </section>
@@ -78,52 +82,70 @@
         <h2>FAQ</h2>
         <details class="question-border-top question-1">
           <summary>What can this site do that my pool can't?</summary>
-          You are able to add and monitor multiple addresses/rigs and monitor them all in one place. With a pool, you are only allowed to monitor one Ethereum address at a time, and this will save you time in the long run. 
+          You are able to add and monitor multiple addresses/rigs and monitor
+          them all in one place. With a pool, you are only allowed to monitor
+          one Ethereum address at a time, and this will save you time in the
+          long run.
         </details>
         <details class="question-border-top question-2">
           <summary>What coins do you support?</summary>
-          Currently, only Ethereum is supported, but support for other coins is rolling out shortly.
+          Currently, only Ethereum is supported, but support for other coins is
+          rolling out shortly.
         </details>
         <details class="question-border-top question-3">
           <summary>What pools do you support?</summary>
-          Currently, only Ethermine and Flexpool are supported, but support for Nanopool and 2miners is being rolled out shortly.
+          Currently, only Ethermine and Flexpool are supported, but support for
+          Nanopool and 2miners is being rolled out shortly.
         </details>
         <details class="question-border-top question-4">
           <summary>How do I add multiple addresses?</summary>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis minus obcaecati maiores nostrum illo sequi ex explicabo a reprehenderit. Officiis, modi unde ipsa doloribus ipsum adipisci! Aspernatur laboriosam repudiandae voluptatem!
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis
+          minus obcaecati maiores nostrum illo sequi ex explicabo a
+          reprehenderit. Officiis, modi unde ipsa doloribus ipsum adipisci!
+          Aspernatur laboriosam repudiandae voluptatem!
         </details>
       </div>
     </section>
     <footer>
       <div class="top-footer">
-      <div class="left">
-        <p>IT'S FREE.</p>
-        <h3>It's Hive, But Better.</h3>
-        <button id="try-now-btn">Try Now</button>
-      </div>
-      <div class="middle">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="miner.html">Miner</a></li>
-          <li><a href="#">Get Started</a></li>
-          <li><a href="#">Updates</a></li>
-        </ul>
-      </div>
-      <div class="right socials">
-        <div class="twitter">
-          <a href="https://twitter.com/sirhchris" class="fab fa-twitter fa-lg" target="_blank"></a>
+        <div class="left">
+          <p>IT'S FREE.</p>
+          <h3>It's Hive, But Better.</h3>
+          <button id="try-now-btn">Try Now</button>
         </div>
-        <div class="linkedin">
-          <a href="https://linkedin.com/in/chrisdaid" class="fab fa-linkedin-in fa-lg" target="_blank"></a>
+        <div class="middle">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="miner.html">Miner</a></li>
+            <li><a href="#">Get Started</a></li>
+            <li><a href="#">Updates</a></li>
+          </ul>
         </div>
-        <div class="github">
-          <a href="https://github.com/chrisdaid/rigmanager" class="fab fa-github fa-lg" target="_blank"></a>
+        <div class="right socials">
+          <div class="twitter">
+            <a
+              href="https://twitter.com/sirhchris"
+              class="fab fa-twitter fa-lg"
+              target="_blank"
+            ></a>
+          </div>
+          <div class="linkedin">
+            <a
+              href="https://linkedin.com/in/chrisdaid"
+              class="fab fa-linkedin-in fa-lg"
+              target="_blank"
+            ></a>
+          </div>
+          <div class="github">
+            <a
+              href="https://github.com/chrisdaid/rigmanager"
+              class="fab fa-github fa-lg"
+              target="_blank"
+            ></a>
+          </div>
         </div>
       </div>
-      </div>
-      <div class="bottom-footer">
-        Crafted with 💛 by Christopher Dai
-      </div>
+      <div class="bottom-footer">Crafted with 💛 by Christopher Dai</div>
     </footer>
     <script src="animate-logo.js"></script>
     <script src="btc-eth-bnb.js"></script>
