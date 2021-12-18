@@ -1,7 +1,7 @@
 .nav {
-  background: var(--darkblue);
+  background: var(--75percblack);
   border-radius: 15px;
-  font-size: 1.125rem;
+  font-size: 1.1em;
 }
 
 .nav ul {
@@ -13,19 +13,35 @@
 }
 
 .nav ul li {
-  margin: 25px 0;
+  margin: 10px 0;
+  padding: 20px;
 }
 
 .nav ul li a {
   text-decoration: none;
-  padding: 20px;
   margin: 0;
   color: var(--white);
   font-weight: 600;
+  position: relative;
+  padding-bottom: 1px;
 }
 
-.nav ul li a:hover {
-  background: #222958;
+.nav ul li a:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--lightblue);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.nav ul li a:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 @keyframes spinner {
@@ -33,7 +49,7 @@
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(1800deg);
+    transform: rotate(720deg);
   }
 }
 
