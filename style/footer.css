@@ -21,7 +21,7 @@ footer {
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-bottom: 150px;
+  margin-bottom: 50px;
   background-color: var(--75percblack);
   /* background-color: #fff; */
 }
@@ -32,9 +32,11 @@ footer {
   display: flex;
   justify-content: center;
   flex-wrap: nowrap;
-  /* width: 50vw; */
-  /* background-color: #fff; */
+  width: 85%;
+  /* background-color: rgba(125, 120, 0, 0.2); */
 }
+
+/* placeholder  */
 
 .top-footer .left {
   width: 56%;
@@ -43,7 +45,8 @@ footer {
 
 .top-footer .left p {
   text-align: left;
-  letter-spacing: 2px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
   color: var(--lightblue);
 }
 
@@ -87,7 +90,6 @@ footer {
   justify-content: center;
   height: 100%;
   overflow: hidden;
-  /* background-color: pink; */
 }
 
 .top-footer .middle ul li {
@@ -149,6 +151,91 @@ footer {
 .socials a:hover {
   transform: scale(1.2);
 }
+
+/* Responsive Footer  */
+
+/* Make footer into columns instead of rows if vw < 768px  */
+
+@media (max-width: 768px) {
+  .top-footer {
+    /* background-color: yellow; */
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .top-footer .left,
+  .top-footer .middle,
+  .top-footer .right {
+    border: none;
+    width: 100%;
+    text-align: center;
+  }
+
+  .top-footer .left p {
+    text-align: center;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    display: none;
+  }
+
+  .top-footer .left h3 #tvt::after {
+    display: block;
+    content: "IT'S FREE.";
+    font-size: 0.85rem;
+    font-weight: 400;
+    position: relative;
+    top: 5px;
+    right: 7.1rem;
+    color: var(--lightblue);
+  }
+
+  .top-footer .left h3 {
+    text-align: center;
+    font-size: 1.75rem;
+    letter-spacing: 0.5px;
+  }
+
+  .top-footer .left #try-now-btn {
+    margin-top: 1rem;
+    padding: 4px 25px;
+    border: 3px solid var(--lightblue);
+    font-size: 0.85rem;
+  }
+
+  .top-footer .middle ul {
+    margin-top: 1rem;
+    flex-direction: row;
+  }
+
+  .top-footer .socials {
+    margin-top: 1rem;
+    flex-direction: row;
+    padding: 0;
+  }
+}
+
+/* Small devices (landscape phones 576px+) */
+@media (min-width: 576px) {
+  .top-footer {
+  }
+}
+
+/* Medium devices (tablets 768px+) */
+@media (min-width: 768px) {
+  .top-footer {
+    width: 700px;
+  }
+}
+
+/* Large devices (desktops/laptops 992px+) */
+@media (min-width: 992px) {
+  .top-footer {
+    width: 900px;
+  }
+}
+
+/* Exit media query  */
 
 .bottom-footer {
   display: flex;
