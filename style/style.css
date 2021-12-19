@@ -76,8 +76,8 @@ form .select-pool label {
   padding: 10px;
 }
 
-form input,
-form button {
+form input[type="text"],
+form input[type="submit"] {
   font-size: 1.125rem;
   font-family: "Montserrat", sans-serif;
   padding: 7px;
@@ -85,7 +85,7 @@ form button {
   border: 3px solid rgba(10, 48, 145, 0.3);
 }
 
-form input {
+form input[type="text"] {
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 }
@@ -103,7 +103,7 @@ form input:focus {
   flex-wrap: nowrap;
 }
 
-form button {
+form input[type="submit"] {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   cursor: pointer;
@@ -113,11 +113,11 @@ form button {
   margin-left: -5px;
 }
 
-form button:hover {
+form input[type="submit"]:hover {
   background: var(--hvrdarkblue);
 }
 
-form button:active {
+form input[type="submit"]:active {
   background: var(--actdrkblue);
 }
 

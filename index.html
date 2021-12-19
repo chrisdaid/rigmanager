@@ -56,7 +56,7 @@
         Don't Pay for Hive. Manage Your Rigs for Free.
       </h1>
       <h2>Select your pool and enter your miner address below.</h2>
-      <form action="">
+      <form action="" class="form">
         <div class="select-pool">
           <input type="radio" id="ethermine" name="pool" />
           <label for="ethermine">Ethermine</label>
@@ -67,9 +67,10 @@
           <input
             type="text"
             id="miner-address"
+            name="miner-address"
             placeholder="miner address (0x...)"
           />
-          <button>Go</button>
+          <input type="submit" value="Go" name="submit" />
         </div>
       </form>
     </main>
@@ -166,5 +167,6 @@
     </footer>
     <script src="navbar.js"></script>
     <script src="btc-eth-bnb.js"></script>
+    <script src="form.js"></script>
   </body>
 </html>
