@@ -1,7 +1,7 @@
 .nav {
   background: var(--75percblack);
   border-radius: 15px;
-  font-size: 1.1em;
+  font-size: 1em;
 }
 
 .nav ul {
@@ -69,4 +69,53 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* Hide Hamburger menu if screen > 576px wide  */
+.nav ul .fa-bars {
+  display: none;
+  margin: 0 20px;
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+@media (max-width: 576px) {
+  .mobile-hamburger-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    user-select: none;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    margin: 0 30px;
+    align-items: flex-start;
+  }
+
+  .nav ul li {
+    display: none;
+    width: 100%;
+  }
+
+  #logo {
+    width: 100%;
+  }
+
+  #logo-link {
+    width: 40px;
+    margin: 30px 0 30px 1rem;
+    justify-content: flex-start;
+  }
+
+  .nav ul .fa-bars {
+    display: block;
+  }
+}
+
+/* hidden/show class for JS toggling */
+
+.nav ul .show {
+  display: block;
 }
