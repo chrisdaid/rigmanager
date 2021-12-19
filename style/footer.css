@@ -215,6 +215,12 @@ footer {
   }
 }
 
+@media (max-width: 576px) {
+  #extra-info .col-container {
+    /* font-size: 0.55rem; */
+  }
+}
+
 /* Small devices (landscape phones 576px+) */
 @media (min-width: 576px) {
   .top-footer {
