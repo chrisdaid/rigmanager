@@ -135,6 +135,32 @@ form button:active {
   letter-spacing: 0.02em;
 }
 
+@media (max-width: 576px) {
+  main h1 {
+    font-size: 1.75rem;
+    padding: 0;
+  }
+
+  main h2 {
+    font-size: 1.125rem;
+  }
+
+  form .select-pool {
+    padding: 5px;
+  }
+
+  form .input-address-container input,
+  form .input-address-container button {
+    font-size: 0.85rem;
+    border: 2.5px solid rgba(10, 48, 145, 0.3);
+  }
+
+  #extra-info .col-container .col {
+    font-size: 1rem;
+    overflow: hidden;
+  }
+}
+
 .col-container {
   margin: 0 auto;
   max-width: 70%;
