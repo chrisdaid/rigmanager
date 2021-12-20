@@ -6,16 +6,18 @@ const form = document.querySelector(".form"),
     .querySelector(".input-address-container")
     .querySelector('input[type="submit"]');
 
-const data = {
+const formDataObj = {
   pool: "",
   address: "",
 };
 
+/////////////////////////////////////////
+// grab form info and check if form is filled correctly
 function getDataForm(e) {
   e.preventDefault();
 
   var formData = new FormData(form);
-  data.pool = ethermine.checked
+  formDataObj.pool = ethermine.checked
     ? "ethermine"
     : flexpool.checked
     ? "flexpool"
@@ -29,7 +31,7 @@ function getDataForm(e) {
   // must start with x and second character
 
   if (addressInput === "") {
-    console.log("empty address");
+    console.error("empty address");
   } else {
     if (
       addressInput.length >= 20 &&
@@ -37,11 +39,30 @@ function getDataForm(e) {
       addressInput.split("")[0] === "0" &&
       addressInput.split("")[1] === "x"
     ) {
-      data.address = addressInput;
       console.log("valid address");
-      alert(data.pool + " " + data.address);
+      // address valid, now check for pool selected
+      if (formDataObj.pool) {
+        formDataObj.address = addressInput;
+        console.log("valid pool + address, done");
+
+        // FETCH MINER INFO
+
+        //miner balance in eth
+        fetch(
+          `https://api.flexpool.io/v2/miner/balance?coin=eth&address=${formDataObj.address}`
+        )
+          .then((res) => res.json())
+          .then((data) => console.log(data.result.balance / 10 ** 18));
+
+        window.open(
+          `miner.html?pool=${formDataObj.pool}&address=${formDataObj.address}`,
+          "_self"
+        );
+      } else {
+        console.error("missing pool selection");
+      }
     } else {
-      console.log("invalid address");
+      console.error("invalid address");
     }
   }
 }
@@ -49,8 +70,7 @@ function getDataForm(e) {
 document.addEventListener(
   "DOMContentLoaded",
   function () {
-    submitBtn.addEventListener("click", getDataForm, false);
+    form.addEventListener("submit", getDataForm, false);
   },
   false
 );
-submitBtn.addEventListener;
