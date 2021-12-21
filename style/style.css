@@ -75,18 +75,34 @@ body {
 /* FORM input text */
 
 form {
-  padding: 15px;
+  padding: 1rem;
 }
 
 form .select-pool {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
   text-align: center;
   font-size: 1.075rem;
-  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 2px solid var(--10percwhite);
+  border-radius: 5px;
 }
 
 form .select-pool input[type="radio"] {
   transform: scale(1.33);
   margin: 0 5px;
+}
+
+form .select-pool .radio-1 {
+  border-right: 1px solid var(--10percwhite);
+  padding: 5px;
+}
+
+form .select-pool .radio-2 {
+  border-left: 1px solid var(--10percwhite);
+  padding: 5px;
 }
 
 form .select-pool label {
@@ -111,7 +127,24 @@ form input:focus {
   border: 3px solid rgba(10, 48, 145, 0.6);
 }
 
-.input-address-container {
+.invalid-pool {
+  bottom: 10px;
+}
+
+.invalid-address {
+  margin-top: 2px;
+}
+
+.invalid-input {
+  position: relative;
+  text-align: left;
+  left: 1.25rem;
+  color: var(--red);
+  user-select: none;
+  display: none;
+}
+
+.search-bar-container {
   filter: drop-shadow(0rem 0rem 0.25rem var(--hvrdarkblue));
   display: flex;
   justify-content: center;
@@ -281,7 +314,6 @@ form input[type="submit"]:active {
 }
 
 .question-border-top {
-  /* background-color: red; */
   box-sizing: border-box;
   border-top: 2px solid var(--10percwhite);
   border-left: 2px solid var(--10percwhite);
@@ -298,4 +330,10 @@ form input[type="submit"]:active {
   border-bottom: 2px solid var(--10percwhite);
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+}
+
+/* show item  */
+
+.show {
+  display: block;
 }
