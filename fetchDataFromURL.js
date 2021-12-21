@@ -13,12 +13,15 @@ if (!queryStr) {
   const link = document.querySelector(".bottom-of-card").querySelector("a");
   const linkText = document.getElementById("pool-link-text");
 
+  const poolText = document.getElementById("pool-name");
   const balance = document.getElementById("balance");
   const ethPrice = document.getElementById("eth-price");
   const avgHash = document.getElementById("avg-hash");
   const curHash = document.getElementById("cur-hash");
   let currentEthPrice = 0;
   let currentBalance = 0;
+  let currentHashrate = 0;
+  let averageHashrate = 0;
 
   // NOT Flexpool API => Nomics API to fetch ETH Price
   fetch(
@@ -31,8 +34,11 @@ if (!queryStr) {
     });
 
   if (pool == "flexpool") {
+    // set pool text to Flexpool
+    poolText.innerText = "Flexpool";
+    // view miner link
     link.href = `https://flexpool.io/miner/eth/${address}`;
-    linkText.innerText = "flexpool";
+    linkText.innerText = "Flexpool";
 
     // fetch flexpool data
     fetch(
@@ -47,8 +53,10 @@ if (!queryStr) {
     fetch(`https://api.flexpool.io/v2/miner/stats?coin=eth&address=${address}`)
       .then((res) => res.json())
       .then((data) => {
-        avgHash.innerHTML = hashrateCalc(data.result.averageEffectiveHashrate);
-        curHash.innerHTML = hashrateCalc(data.result.currentEffectiveHashrate);
+        averageHashrate = hashrateCalc(data.result.averageEffectiveHashrate);
+        avgHash.innerText = averageHashrate;
+        currentHashrate = hashrateCalc(data.result.currentEffectiveHashrate);
+        curHash.innerText = currentHashrate;
       });
     // if not flexpool, run this for ethermine
   } else {
@@ -56,8 +64,31 @@ if (!queryStr) {
     address = address.split("");
     address.splice(0, 2);
     address = address.join("");
+    // set pool text to Ethermine
+    poolText.innerText = "Ethermine";
+
+    //view miner link
     link.href = `https://ethermine.org/miners/${address}/dashboard`;
     linkText.innerText = "Ethermine";
+
+    //fetch data from Ethermine API
+    fetch(
+      "https://api.ethermine.org/miner/:0xcF797972320cF7678FAf504C5082aCF7666a413F/currentStats"
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        averageHashrate = hashrateCalc(data.data.averageHashrate);
+        avgHash.innerText = averageHashrate;
+        // current hash
+        currentHashrate = hashrateCalc(data.data.currentHashrate);
+        curHash.innerText = currentHashrate;
+        // balance
+        currentBalance = truncToFive(data.data.unpaid / 10 ** 18);
+        balance.innerText = currentBalance;
+
+        // active workers
+        console.log(data.data.activeWorkers);
+      });
   }
 
   /////////////////////////////////////////////
