@@ -57,6 +57,9 @@ if (!queryStr) {
         avgHash.innerText = averageHashrate;
         currentHashrate = hashrateCalc(data.result.currentEffectiveHashrate);
         curHash.innerText = currentHashrate;
+        // once all data is loaded, fade in the content
+        document.querySelector("main").classList.add("fade-in");
+        document.querySelector("main").style.visibility = "visible";
       });
     // if not flexpool, run this for ethermine
   } else {
@@ -72,9 +75,7 @@ if (!queryStr) {
     linkText.innerText = "Ethermine";
 
     //fetch data from Ethermine API
-    fetch(
-      "https://api.ethermine.org/miner/:0xcF797972320cF7678FAf504C5082aCF7666a413F/currentStats"
-    )
+    fetch(`https://api.ethermine.org/miner/:${address}/currentStats`)
       .then((res) => res.json())
       .then((data) => {
         averageHashrate = hashrateCalc(data.data.averageHashrate);
@@ -88,6 +89,9 @@ if (!queryStr) {
 
         // active workers
         console.log(data.data.activeWorkers);
+        // once all data is loaded, fade in the content
+        document.querySelector("main").classList.add("fade-in");
+        document.querySelector("main").style.visibility = "visible";
       });
   }
 
