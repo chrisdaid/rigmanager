@@ -3,7 +3,7 @@ const form = document.querySelector(".form"),
   ethermine = radioBtn.querySelector("#ethermine"),
   flexpool = radioBtn.querySelector("#flexpool"),
   submitBtn = form
-    .querySelector(".input-address-container")
+    .querySelector(".address-container")
     .querySelector('input[type="submit"]');
 
 const formDataObj = {
@@ -30,8 +30,14 @@ function getDataForm(e) {
   // must start with 0 as first character
   // must start with x and second character
 
+  const addressMessage = document.querySelector(".invalid-address");
+  const poolMessage = document.querySelector(".invalid-pool");
+
   if (addressInput === "") {
+    // empty address so show text under search bar
     console.error("empty address");
+    addressMessage.innerText = "Address is empty";
+    addressMessage.classList.add("show");
   } else {
     if (
       addressInput.length >= 20 &&
@@ -59,10 +65,18 @@ function getDataForm(e) {
           "_self"
         );
       } else {
-        console.error("missing pool selection");
+        //if address is valid but no pool selected
+        console.error("address valid, missing pool selection");
+        // empty pool selection so show text under radio btns
+        poolMessage.innerText = "No pool selected";
+        poolMessage.classList.add("show");
+        addressMessage.classList.remove("show");
       }
     } else {
+      // address is !empty but address is invalid so show text under search bar
       console.error("invalid address");
+      addressMessage.innerText = "Address is invalid";
+      addressMessage.classList.add("show");
     }
   }
 }
