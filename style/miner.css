@@ -16,6 +16,7 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  visibility: hidden;
 }
 
 .card {
@@ -80,4 +81,20 @@ main {
   padding: 3px;
   border-radius: 5px;
   font-style: italic;
+}
+
+/* Animation fade in */
+
+.fade-in {
+  animation: fadeIn 0.4s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
