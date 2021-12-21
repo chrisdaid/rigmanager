@@ -25,9 +25,26 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+/* skip to main  */
+
+.skip-nav-link {
+  background-color: var(--white);
+  color: var(--bgc);
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 0.25rem 0.25rem;
+  position: absolute;
+  left: 0.5rem;
+  transform: translateY(-120%);
+  transition: transform 300ms ease-in;
+}
+
+.skip-nav-link:focus {
+  transform: translateY(0);
+}
+
 /* Main  */
 
-main {
+#main-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,18 +57,18 @@ main {
   background-color: var(--60percblack);
 }
 
-main h1 {
+#main-content h1 {
   font-size: 2.25rem;
   padding: 20px;
 }
 
-main h2 {
+#main-content h2 {
   font-size: 1.25rem;
   text-align: center;
   padding: 10px;
 }
 
-main h2 a {
+#main-content h2 a {
   color: var(--white);
 }
 
@@ -136,12 +153,12 @@ form input[type="submit"]:active {
 }
 
 @media (max-width: 576px) {
-  main h1 {
+  #main-content h1 {
     font-size: 1.75rem;
     padding: 0;
   }
 
-  main h2 {
+  #main-content h2 {
     font-size: 1.125rem;
   }
 
