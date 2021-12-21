@@ -39,7 +39,6 @@ main {
 
 .card .left-card {
   width: 50%;
-  /* background: red; */
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
   padding: 25px;
@@ -47,7 +46,6 @@ main {
 
 .card .right-card {
   width: 50%;
-  /* background: black; */
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
   padding: 25px;
