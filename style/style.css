@@ -75,38 +75,56 @@ body {
 /* FORM input text */
 
 form {
-  padding: 1rem;
+  padding-top: 1rem;
 }
 
 form .select-pool {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 1rem;
-  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
   font-size: 1.075rem;
-  background-color: rgba(0, 0, 0, 0.2);
-  border: 2px solid var(--10percwhite);
-  border-radius: 5px;
 }
 
 form .select-pool input[type="radio"] {
-  transform: scale(1.33);
-  margin: 0 5px;
-}
-
-form .select-pool .radio-1 {
-  border-right: 1px solid var(--10percwhite);
-  padding: 5px;
-}
-
-form .select-pool .radio-2 {
-  border-left: 1px solid var(--10percwhite);
-  padding: 5px;
+  opacity: 0;
+  width: 0;
+  position: fixed;
 }
 
 form .select-pool label {
-  padding: 10px;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  /* border: 2px solid var(--10percwhite); */
+}
+
+form .select-pool .radio-1 label {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top: 2px solid var(--10percwhite);
+  border-right: 1px solid var(--10percwhite);
+  border-bottom: 2px solid var(--10percwhite);
+  border-left: 2px solid var(--10percwhite);
+}
+
+form .select-pool .radio-2 label {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top: 2px solid var(--10percwhite);
+  border-right: 2px solid var(--10percwhite);
+  border-bottom: 2px solid var(--10percwhite);
+  border-left: 1px solid var(--10percwhite);
+}
+
+form .select-pool input[type="radio"]:checked + label {
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: 500;
+}
+
+form .select-pool input[type="radio"]:focus + label {
+  border: 1px solid blue;
+  outline: 1px solid var(--white);
 }
 
 form input[type="text"],
@@ -128,7 +146,7 @@ form input:focus {
 }
 
 .invalid-pool {
-  bottom: 10px;
+  bottom: 30px;
 }
 
 .invalid-address {
