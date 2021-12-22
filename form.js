@@ -35,9 +35,15 @@ function getDataForm(e) {
 
   if (addressInput === "") {
     // empty address so show text under search bar
-    console.error("empty address");
+    console.log("empty address", "---------");
     addressMessage.innerText = "Address is empty";
     addressMessage.classList.add("show");
+    if (formDataObj.pool == undefined) {
+      poolMessage.innerText = "No pool selected";
+      poolMessage.classList.add("show");
+    } else {
+      poolMessage.classList.remove("show");
+    }
   } else {
     if (
       addressInput.length >= 20 &&
@@ -49,6 +55,8 @@ function getDataForm(e) {
       // address valid, now check for pool selected
       if (formDataObj.pool) {
         formDataObj.address = addressInput;
+        addressMessage.classList.remove("show");
+        poolMessage.classList.remove("show");
         console.log("valid pool + address, done");
 
         // FETCH MINER INFO
@@ -66,7 +74,7 @@ function getDataForm(e) {
         );
       } else {
         //if address is valid but no pool selected
-        console.error("address valid, missing pool selection");
+        console.log("address valid, missing pool selection", "---------");
         // empty pool selection so show text under radio btns
         poolMessage.innerText = "No pool selected";
         poolMessage.classList.add("show");
@@ -74,7 +82,7 @@ function getDataForm(e) {
       }
     } else {
       // address is !empty but address is invalid so show text under search bar
-      console.error("invalid address");
+      console.log("invalid address", "---------");
       addressMessage.innerText = "Address is invalid";
       addressMessage.classList.add("show");
     }
