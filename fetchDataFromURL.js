@@ -102,7 +102,7 @@ if (!queryStr) {
   const hashrateCalc = (hash) => {
     hash = truncToTwo((hash * 1.00001) / 1000000);
     // // if hash is in the GH (gigahash)
-    if (hash > 99999.99) {
+    if (hash > 999999.99) {
       hash = `${truncToTwo(hash / 1000000)}TH`;
       return hash;
       // if hash is in the TH (terahash)
