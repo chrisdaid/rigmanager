@@ -46,20 +46,35 @@ if (!queryStr) {
     )
       .then((response) => response.json())
       .then((data) => {
-        currentBalance = truncToFive(data.result.balance / 10 ** 18);
-        balance.innerText = currentBalance;
+        if (data.result.balance === 0) {
+          balance.innerText = currentBalance;
+        } else {
+          currentBalance = truncToFive(data.result.balance / 10 ** 18);
+          balance.innerText = currentBalance;
+        }
       });
 
     fetch(`https://api.flexpool.io/v2/miner/stats?coin=eth&address=${address}`)
       .then((res) => res.json())
       .then((data) => {
-        averageHashrate = hashrateCalc(data.result.averageEffectiveHashrate);
-        avgHash.innerText = averageHashrate;
-        currentHashrate = hashrateCalc(data.result.currentEffectiveHashrate);
-        curHash.innerText = currentHashrate;
-        // once all data is loaded, fade in the content
-        document.querySelector("main").classList.add("fade-in");
-        document.querySelector("main").style.visibility = "visible";
+        if (
+          data.result.averageEffectiveHashrate === 0 &&
+          data.result.currentEffectiveHashrate === 0
+        ) {
+          avgHash.innerText = "0MH";
+          curHash.innerText = "0MH";
+          // once all data is loaded, fade in the content
+          document.querySelector("main").classList.add("fade-in");
+          document.querySelector("main").style.visibility = "visible";
+        } else {
+          averageHashrate = hashrateCalc(data.result.averageEffectiveHashrate);
+          avgHash.innerText = averageHashrate;
+          currentHashrate = hashrateCalc(data.result.currentEffectiveHashrate);
+          curHash.innerText = currentHashrate;
+          // once all data is loaded, fade in the content
+          document.querySelector("main").classList.add("fade-in");
+          document.querySelector("main").style.visibility = "visible";
+        }
       });
     // if not flexpool, run this for ethermine
   } else {
@@ -78,20 +93,30 @@ if (!queryStr) {
     fetch(`https://api.ethermine.org/miner/:${address}/currentStats`)
       .then((res) => res.json())
       .then((data) => {
-        averageHashrate = hashrateCalc(data.data.averageHashrate);
-        avgHash.innerText = averageHashrate;
-        // current hash
-        currentHashrate = hashrateCalc(data.data.currentHashrate);
-        curHash.innerText = currentHashrate;
-        // balance
-        currentBalance = truncToFive(data.data.unpaid / 10 ** 18);
-        balance.innerText = currentBalance;
+        // if wrong address AND api is online, just put 0 for hashrate
+        if (data.data == "NO DATA" && data.status === "OK") {
+          avgHash.innerText = "0MH";
+          curHash.innerText = "0MH";
+          balance.innerText = currentBalance;
+          // once all data is loaded, fade in the content
+          document.querySelector("main").classList.add("fade-in");
+          document.querySelector("main").style.visibility = "visible";
+        } else {
+          averageHashrate = hashrateCalc(data.data.averageHashrate);
+          avgHash.innerText = averageHashrate;
+          // current hash
+          currentHashrate = hashrateCalc(data.data.currentHashrate);
+          curHash.innerText = currentHashrate;
+          // balance
+          currentBalance = truncToFive(data.data.unpaid / 10 ** 18);
+          balance.innerText = currentBalance;
 
-        // active workers
-        console.log(data.data.activeWorkers);
-        // once all data is loaded, fade in the content
-        document.querySelector("main").classList.add("fade-in");
-        document.querySelector("main").style.visibility = "visible";
+          // active workers
+          console.log(data.data.activeWorkers);
+          // once all data is loaded, fade in the content
+          document.querySelector("main").classList.add("fade-in");
+          document.querySelector("main").style.visibility = "visible";
+        }
       });
   }
 
@@ -117,7 +142,6 @@ if (!queryStr) {
   };
 
   // ETH to USD Conversion
-  const rate = truncToTwo(currentEthPrice * currentBalance);
   const conversionBtn = document.getElementById("conversion-btn");
 
   conversionBtn.classList.toggle("fas-dollar-sign");
@@ -129,7 +153,12 @@ if (!queryStr) {
     conversionBtn.classList.toggle("fa-ethereum");
     if (conversionBtn.classList[1] === "fab") {
       console.log(currentEthPrice);
-      balance.textContent = "$" + truncToTwo(currentEthPrice * currentBalance);
+      if (currentBalance === 0) {
+        balance.textContent = "$0";
+      } else {
+        balance.textContent =
+          "$" + truncToTwo(currentEthPrice * currentBalance);
+      }
     } else if (conversionBtn.classList[1] === "fas") {
       console.log("show eth amount");
       balance.textContent = `${currentBalance}`;
