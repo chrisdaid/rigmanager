@@ -23,7 +23,7 @@ footer {
 
 .footer-wrapper {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1260px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,8 +36,8 @@ footer {
   display: flex;
   justify-content: center;
   flex-wrap: nowrap;
-  width: 100%;
-  max-width: 1200px;
+  min-width: 100%;
+  max-width: 1260px;
   padding: 22px;
 }
 
@@ -238,4 +238,5 @@ footer {
   align-items: center;
   color: rgba(255, 255, 255, 0.5);
   background-color: var(--75percblack);
+  padding-bottom: 22px;
 }
