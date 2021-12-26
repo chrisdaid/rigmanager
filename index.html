@@ -52,127 +52,136 @@
     </div>
 
     <!-- heading area -->
-    <main id="main-content">
-      <h1 class="animate__animated animate__pulse">
-        Don't Pay for Hive. Manage Your Rigs for Free.
-      </h1>
-      <h2>Select your pool and enter your miner address below.</h2>
-      <form action="" class="form">
-        <div class="select-pool">
-          <div class="radio-1">
-            <input type="radio" id="ethermine" name="pool" />
-            <label for="ethermine">Ethermine</label>
-          </div>
-          <div class="radio-2">
-            <input type="radio" id="flexpool" name="pool" />
-            <label for="flexpool">Flexpool</label>
-          </div>
-        </div>
-        <div class="invalid-input invalid-pool"></div>
-        <div class="address-container">
-          <div class="search-bar-container">
-            <input
-              type="text"
-              id="miner-address"
-              name="miner-address"
-              placeholder="miner address (0x...)"
-            />
-            <input type="submit" value="Go" name="submit" />
-          </div>
-          <div class="invalid-input invalid-address"></div>
-        </div>
-      </form>
-    </main>
+    <div class="main-wrapper">
+      <div class="wrapper">
+        <main id="main-content">
+          <h1 class="animate__animated animate__pulse">
+            Don't Pay for Hive. Manage Your Rigs for Free.
+          </h1>
+          <h2>Select your pool and enter your miner address below.</h2>
+          <form action="" class="form">
+            <div class="select-pool">
+              <div class="radio-1">
+                <input type="radio" id="ethermine" name="pool" />
+                <label for="ethermine">Ethermine</label>
+              </div>
+              <div class="radio-2">
+                <input type="radio" id="flexpool" name="pool" />
+                <label for="flexpool">Flexpool</label>
+              </div>
+            </div>
+            <div class="invalid-input invalid-pool"></div>
+            <div class="address-container">
+              <div class="search-bar-container">
+                <input
+                  type="text"
+                  id="miner-address"
+                  name="miner-address"
+                  placeholder="miner address (0x...)"
+                />
+                <input type="submit" value="Go" name="submit" />
+              </div>
+              <div class="invalid-input invalid-address"></div>
+            </div>
+          </form>
+        </main>
 
-    <!-- Extra information 3 columns, 1 row -->
+        <!-- Extra information 3 columns, 1 row -->
 
-    <section id="extra-info">
-      <div class="col-container">
-        <div class="col col-1">BTC: <span id="btc-price"></span></div>
-        <div class="col col-2">ETH: <span id="eth-price"></span></div>
-        <div class="col col-3">BNB: <span id="bnb-price"></span></div>
+        <section id="extra-info">
+          <div class="col-container">
+            <div class="col col-1">BTC: <span id="btc-price"></span></div>
+            <div class="col col-2">ETH: <span id="eth-price"></span></div>
+            <div class="col col-3">BNB: <span id="bnb-price"></span></div>
+          </div>
+          <div>
+            <div class="progress">
+              <div class="progress-bar-custom" style="--bg: #ff9b6a"></div>
+            </div>
+          </div>
+        </section>
+        <section id="get-started">
+          <div class="get-started-container">
+            <h3>Don't know where to start?</h3>
+            <h4>
+              Click <a href="#">get started</a>. We'll guide you through it.
+            </h4>
+          </div>
+        </section>
+        <section id="faq">
+          <div class="faq-container">
+            <h2>FAQ</h2>
+            <details class="question-border-top question-1">
+              <summary>What can this site do that my pool can't?</summary>
+              You are able to add and monitor multiple addresses/rigs and
+              monitor them all in one place. With a pool, you are only allowed
+              to monitor one Ethereum address at a time, and this will save you
+              time in the long run.
+            </details>
+            <details class="question-border-top question-2">
+              <summary>What coins do you support?</summary>
+              Currently, only Ethereum is supported, but support for other coins
+              is rolling out shortly.
+            </details>
+            <details class="question-border-top question-3">
+              <summary>What pools do you support?</summary>
+              Currently, only Ethermine and Flexpool are supported, but support
+              for Nanopool and 2miners is being rolled out shortly.
+            </details>
+            <details class="question-border-top question-4">
+              <summary>How do I add multiple addresses?</summary>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Perspiciatis minus obcaecati maiores nostrum illo sequi ex
+              explicabo a reprehenderit. Officiis, modi unde ipsa doloribus
+              ipsum adipisci! Aspernatur laboriosam repudiandae voluptatem!
+            </details>
+          </div>
+        </section>
       </div>
-      <div>
-        <div class="progress">
-          <div class="progress-bar-custom" style="--bg: #ff9b6a"></div>
-        </div>
-      </div>
-    </section>
-    <section id="get-started">
-      <div class="get-started-container">
-        <h3>Don't know where to start?</h3>
-        <h4>Click <a href="#">get started</a>. We'll guide you through it.</h4>
-      </div>
-    </section>
-    <section id="faq">
-      <div class="faq-container">
-        <h2>FAQ</h2>
-        <details class="question-border-top question-1">
-          <summary>What can this site do that my pool can't?</summary>
-          You are able to add and monitor multiple addresses/rigs and monitor
-          them all in one place. With a pool, you are only allowed to monitor
-          one Ethereum address at a time, and this will save you time in the
-          long run.
-        </details>
-        <details class="question-border-top question-2">
-          <summary>What coins do you support?</summary>
-          Currently, only Ethereum is supported, but support for other coins is
-          rolling out shortly.
-        </details>
-        <details class="question-border-top question-3">
-          <summary>What pools do you support?</summary>
-          Currently, only Ethermine and Flexpool are supported, but support for
-          Nanopool and 2miners is being rolled out shortly.
-        </details>
-        <details class="question-border-top question-4">
-          <summary>How do I add multiple addresses?</summary>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis
-          minus obcaecati maiores nostrum illo sequi ex explicabo a
-          reprehenderit. Officiis, modi unde ipsa doloribus ipsum adipisci!
-          Aspernatur laboriosam repudiandae voluptatem!
-        </details>
-      </div>
-    </section>
+    </div>
+
     <footer>
-      <div class="top-footer">
-        <div class="left">
-          <p>IT'S FREE.</p>
-          <h3><span id="tvt"></span>It's Hive, But Better.</h3>
-          <button id="try-now-btn">Try Now</button>
-        </div>
-        <div class="middle">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="miner.html">Miner</a></li>
-            <li><a href="#">Get Started</a></li>
-            <li><a href="#">Updates</a></li>
-          </ul>
-        </div>
-        <div class="right socials">
-          <div class="twitter">
-            <a
-              href="https://twitter.com/sirhchris"
-              class="fab fa-twitter fa-lg"
-              target="_blank"
-            ></a>
+      <div class="footer-wrapper">
+        <div class="top-footer">
+          <div class="left">
+            <p>IT'S FREE.</p>
+            <h3><span id="tvt"></span>It's Hive, But Better.</h3>
+            <button id="try-now-btn">Try Now</button>
           </div>
-          <div class="linkedin">
-            <a
-              href="https://linkedin.com/in/chrisdaid"
-              class="fab fa-linkedin-in fa-lg"
-              target="_blank"
-            ></a>
+          <div class="middle">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="miner.html">Miner</a></li>
+              <li><a href="#">Get Started</a></li>
+              <li><a href="#">Updates</a></li>
+            </ul>
           </div>
-          <div class="github">
-            <a
-              href="https://github.com/chrisdaid/rigmanager"
-              class="fab fa-github fa-lg"
-              target="_blank"
-            ></a>
+          <div class="right socials">
+            <div class="twitter">
+              <a
+                href="https://twitter.com/sirhchris"
+                class="fab fa-twitter fa-lg"
+                target="_blank"
+              ></a>
+            </div>
+            <div class="linkedin">
+              <a
+                href="https://linkedin.com/in/chrisdaid"
+                class="fab fa-linkedin-in fa-lg"
+                target="_blank"
+              ></a>
+            </div>
+            <div class="github">
+              <a
+                href="https://github.com/chrisdaid/rigmanager"
+                class="fab fa-github fa-lg"
+                target="_blank"
+              ></a>
+            </div>
           </div>
         </div>
+        <div class="bottom-footer">Crafted with 💛 by Christopher Dai</div>
       </div>
-      <div class="bottom-footer">Crafted with 💛 by Christopher Dai</div>
     </footer>
     <script src="form.js"></script>
     <script src="btc-eth-bnb.js"></script>

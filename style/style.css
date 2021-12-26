@@ -44,6 +44,19 @@ body {
 
 /* Main  */
 
+.main-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
+}
+
 #main-content {
   display: flex;
   flex-direction: column;
@@ -371,4 +384,9 @@ form input[type="submit"]:active {
 
 .show {
   display: block;
+}
+
+/* max width */
+.max-width {
+  max-width: 1170px;
 }
