@@ -109,7 +109,6 @@ form .select-pool input[type="radio"] {
 form .select-pool label {
   padding: 0.5rem 1.5rem;
   cursor: pointer;
-  /* border: 2px solid var(--10percwhite); */
 }
 
 form .select-pool .radio-1 label {
@@ -182,6 +181,7 @@ form input:focus {
   align-items: center;
   margin-top: 10px;
   flex-wrap: nowrap;
+  margin-bottom: 20px;
 }
 
 form input[type="submit"] {
