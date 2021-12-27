@@ -66,12 +66,13 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+  /* overflow: hidden; */
 }
 
 .address-and-copy {
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 80%;
 }
 
 .eth-bg {
@@ -103,20 +104,29 @@ body {
   position: relative;
 }
 
-.copy-btn-tt {
-  position: absolute;
+.copy-btn:hover .copy-btn-tt {
+  visibility: visible;
+}
+
+.add-btn:hover .add-btn-tt {
+  visibility: visible;
+}
+
+.tooltip {
   background-color: var(--bgc);
   border: 2px solid var(--10percwhite);
   border-radius: 20px 20px 50px 5px;
   padding: 1rem 10px;
-  height: 1.45rem;
-  top: -2.25rem;
-  left: 1.4rem;
   font-size: 1rem;
   font-family: "Montserrat", sans-serif;
   display: flex;
   align-items: center;
   cursor: text;
+  height: 1.45rem;
+  top: -2.25rem;
+  left: 1.4rem;
+  position: absolute;
+
   visibility: hidden;
 }
 
@@ -124,6 +134,7 @@ body {
   cursor: pointer;
   display: flex;
   font-size: 1.75rem;
+  position: relative;
 }
 
 /* main  */
@@ -135,10 +146,6 @@ body {
   margin: 30px;
   max-width: 1200px;
   display: inline-block;
-  /* padding: 20px; */
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* text-align: center; */
 }
 
 .main-cards {
@@ -204,12 +211,6 @@ body {
   padding: 3px;
   border-radius: 5px;
   font-style: italic;
-}
-
-/* show hidden visibility  */
-
-.visible {
-  visibility: visible;
 }
 
 /* Animation fade in */
