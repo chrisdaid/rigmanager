@@ -9,6 +9,17 @@ if (!queryStr) {
   let address = usp.get("address");
 
   /////////////////////////////////////////////
+  // Change the address text to the submitted address
+  const addressText = document.querySelector(".address");
+  addressText.innerText = address;
+  /////////////////////////////////////////////
+  // Make copy address button work
+  const copyBtn = document.querySelector(".copy-btn");
+  console.log(copyBtn);
+  copyBtn.addEventListener("click", () => {
+    navigator.clipboard.writeText(address);
+  });
+  /////////////////////////////////////////////
   // Change the 'View miner on __pool__ ' link
   const link = document.querySelector(".bottom-of-card").querySelector("a");
   const linkText = document.getElementById("pool-link-text");
