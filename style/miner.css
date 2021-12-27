@@ -1,3 +1,17 @@
+:root {
+  --bgc: rgb(28, 28, 28);
+  --60percblack: rgba(28, 28, 28, 0.6);
+  --lightbgc: rgb(41, 40, 40);
+  --darkblue: #161e54;
+  --hvrdarkblue: #343c6c;
+  --lightblue: #88e0ef;
+  --hvrlightblue: ;
+  --red: #ff5151;
+  --orange: #ff9b6a;
+  --white: #fff;
+  --10percwhite: rgba(255, 255, 255, 0.1);
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -18,6 +32,71 @@ main {
   flex-direction: column;
   visibility: hidden;
 }
+
+/* Address bar  */
+
+.address-bar-container {
+  /* background-color: red; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.address-bar {
+  background-color: var(--60percblack);
+  border: 2px solid var(--10percwhite);
+  border-radius: 5px;
+  width: 100%;
+  height: 4rem;
+  max-width: 1200px;
+  margin: 60px 30px 30px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.address-and-copy {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.eth-bg {
+  background-color: var(--white);
+  font-size: 1.45rem;
+  min-width: 1.45rem;
+  min-height: 1.45rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.eth-logo {
+  font-size: 1rem;
+  color: var(--bgc);
+}
+
+.address {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.copy-btn {
+  font-size: 1.45rem;
+  margin: 0 1rem 0 1rem;
+  cursor: pointer;
+}
+
+.add-btn {
+  cursor: pointer;
+  display: flex;
+  font-size: 1.75rem;
+}
+
+/* main  */
 
 .card {
   background: rgb(10, 48, 145);
