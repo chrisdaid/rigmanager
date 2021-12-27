@@ -15,12 +15,14 @@ if (!queryStr) {
   /////////////////////////////////////////////
   // Make copy address button work
   const copyBtn = document.querySelector(".copy-btn");
+  const copyBtnTooltip = document.querySelector(".copy-btn-tt");
   console.log(copyBtn);
   copyBtn.addEventListener("click", () => {
     if (address[0] !== "0" && address[1] !== "x") {
       address = "0x" + address;
     }
     navigator.clipboard.writeText(address);
+    copyBtnTooltip.innerText = "Copied";
   });
   /////////////////////////////////////////////
   // Change the 'View miner on __pool__ ' link
