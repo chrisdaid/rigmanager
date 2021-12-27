@@ -51,40 +51,44 @@
     </div>
 
     <!-- main  -->
-    <main>
-      <div class="address-bar-container">
-        <div class="address-bar">
-          <div class="address-and-copy">
-            <div class="eth-bg">
-              <div class="eth-logo fab fa-ethereum"></div>
+    <div class="main-wrapper">
+      <div class="wrapper">
+        <main id="main-content">
+          <div class="address-bar-container">
+            <div class="address-bar">
+              <div class="address-and-copy">
+                <div class="eth-bg">
+                  <div class="eth-logo fab fa-ethereum"></div>
+                </div>
+                <div class="address">...</div>
+                <div class="copy-btn far fa-copy"></div>
+              </div>
+              <div class="add-btn far fa-plus-square"></div>
             </div>
-            <div class="address">...</div>
-            <div class="copy-btn far fa-copy"></div>
           </div>
-          <div class="add-btn far fa-plus-square"></div>
-        </div>
-      </div>
 
-      <div class="card">
-        <div class="main-cards">
-          <div class="left-card left-align">
-            <h1>Pool: <span id="pool-name"></span></h1>
-            <h2>Current Hash: <span id="cur-hash">...</span></h2>
-            <h2>Average Hash: <span id="avg-hash">...</span></h2>
+          <div class="card">
+            <div class="main-cards">
+              <div class="left-card left-align">
+                <h1>Pool: <span id="pool-name"></span></h1>
+                <h2>Current Hash: <span id="cur-hash">...</span></h2>
+                <h2>Average Hash: <span id="avg-hash">...</span></h2>
+              </div>
+              <div class="right-card left-align">
+                <h2>Eth Price: <span id="eth-price">...</span></h2>
+                <h2>
+                  Balance: <span id="balance">...</span
+                  ><i class="fa-dollar-sign fas" id="conversion-btn"></i>
+                </h2>
+              </div>
+            </div>
+            <div class="bottom-of-card">
+              <a href="#">View miner on <span id="pool-link-text">...</span></a>
+            </div>
           </div>
-          <div class="right-card left-align">
-            <h2>Eth Price: <span id="eth-price">...</span></h2>
-            <h2>
-              Balance: <span id="balance">...</span
-              ><i class="fa-dollar-sign fas" id="conversion-btn"></i>
-            </h2>
-          </div>
-        </div>
-        <div class="bottom-of-card">
-          <a href="#">View miner on <span id="pool-link-text">...</span></a>
-        </div>
+        </main>
       </div>
-    </main>
+    </div>
 
     <!-- Footer  -->
 
