@@ -17,6 +17,9 @@ if (!queryStr) {
   const copyBtn = document.querySelector(".copy-btn");
   console.log(copyBtn);
   copyBtn.addEventListener("click", () => {
+    if (address[0] !== "0" && address[1] !== "x") {
+      address = "0x" + address;
+    }
     navigator.clipboard.writeText(address);
   });
   /////////////////////////////////////////////
