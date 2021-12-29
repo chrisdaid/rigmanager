@@ -22,6 +22,7 @@
       src="https://kit.fontawesome.com/2eaa823958.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
   </head>
   <body>
     <!-- NAVBAR -->
@@ -86,6 +87,11 @@
                 </h2>
               </div>
             </div>
+            <div class="chart">
+              <!-- start  -->
+              <canvas id="myChart" width="80px" height="20px"></canvas>
+              <!-- end chart  -->
+            </div>
             <div class="bottom-of-card">
               <a href="#">View miner on <span id="pool-link-text">...</span></a>
             </div>
@@ -140,6 +146,7 @@
       </div>
     </footer>
     <script type="module" src="truncate.js"></script>
+    <script type="module" src="chart.js"></script>
     <script type="module" src="fetchDataFromURL.js"></script>
     <script src="minerstats.js"></script>
     <script src="navbar.js"></script>
