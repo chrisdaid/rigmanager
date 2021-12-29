@@ -196,6 +196,12 @@ body {
   cursor: pointer;
 }
 
+/* Chart  */
+
+.chart {
+  margin: 30px;
+}
+
 /* Bottom section 'view on flexpool'  */
 
 .bottom-of-card {

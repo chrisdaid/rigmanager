@@ -1,4 +1,5 @@
 import { truncToTwo, truncToFive } from "./truncate.js";
+import { showChart } from "./chart.js";
 const url = window.location.href;
 const queryStr = url.split("?")[1];
 if (!queryStr) {
@@ -16,7 +17,6 @@ if (!queryStr) {
   // Make copy address button work
   const copyBtn = document.querySelector(".copy-btn");
   const copyBtnTooltip = document.querySelector(".copy-btn-tt");
-  console.log(copyBtn);
   copyBtn.addEventListener("click", () => {
     if (address[0] !== "0" && address[1] !== "x") {
       address = "0x" + address;
@@ -55,8 +55,10 @@ if (!queryStr) {
     // view miner link
     link.href = `https://flexpool.io/miner/eth/${address}`;
     linkText.innerText = "Flexpool";
+    // set chart
+    showChart(address);
 
-    // fetch flexpool data
+    // fetch flexpool data for hashrate
     fetch(
       `https://api.flexpool.io/v2/miner/balance?coin=eth&address=${address}`
     )
