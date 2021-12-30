@@ -1,5 +1,5 @@
 import { truncToTwo, truncToFive } from "./truncate.js";
-import { showChart } from "./chart.js";
+import { showFPChart, showEMChart } from "./chart.js";
 const url = window.location.href;
 const queryStr = url.split("?")[1];
 if (!queryStr) {
@@ -56,8 +56,7 @@ if (!queryStr) {
     link.href = `https://flexpool.io/miner/eth/${address}`;
     linkText.innerText = "Flexpool";
     // set chart
-    showChart(address);
-
+    showFPChart(address);
     // fetch flexpool data for hashrate
     fetch(
       `https://api.flexpool.io/v2/miner/balance?coin=eth&address=${address}`
@@ -106,6 +105,9 @@ if (!queryStr) {
     //view miner link
     link.href = `https://ethermine.org/miners/${address}/dashboard`;
     linkText.innerText = "Ethermine";
+
+    // set chart
+    showEMChart(address);
 
     //fetch data from Ethermine API
     fetch(`https://api.ethermine.org/miner/:${address}/currentStats`)
