@@ -38,11 +38,15 @@ body {
   max-width: 1260px;
 }
 
+main {
+  visibility: hidden;
+}
+
 #main-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  visibility: hidden;
+  /* visibility: hidden; */
 }
 
 /* Address bar  */
@@ -61,7 +65,7 @@ body {
   width: 100%;
   height: 4rem;
   max-width: 1200px;
-  margin: 60px 30px 30px 30px;
+  margin: 60px 30px 15px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -72,7 +76,6 @@ body {
 .address-and-copy {
   display: flex;
   align-items: center;
-  width: 80%;
 }
 
 .eth-bg {
@@ -95,6 +98,7 @@ body {
 .address {
   text-overflow: ellipsis;
   overflow: hidden;
+  font-size: 1.35rem;
 }
 
 .copy-btn {
@@ -106,10 +110,12 @@ body {
 
 .copy-btn:hover .copy-btn-tt {
   visibility: visible;
+  user-select: none;
 }
 
 .add-btn:hover .add-btn-tt {
   visibility: visible;
+  user-select: none;
 }
 
 .tooltip {
@@ -137,6 +143,41 @@ body {
   position: relative;
 }
 
+/* gas fee and pool selected  */
+
+.gas-pool-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.gas-pool-bar {
+  background-color: var(--60percblack);
+  border: 2px solid var(--10percwhite);
+  border-radius: 5px;
+  width: 100%;
+  height: 4rem;
+  max-width: 1200px;
+  margin: 0px 30px 30px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+.gas-indicator {
+  /* background-color: #fff; */
+  font-weight: 500;
+}
+
+#gwei {
+  color: var(--orange);
+}
+
+.pool-indicator {
+  /* background-color: red; */
+  font-weight: 500;
+}
+
 /* main  */
 
 .card {
@@ -151,32 +192,43 @@ body {
 .main-cards {
   display: flex;
   flex-direction: row;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .card h2 {
+  font-size: 1rem;
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+  /* background-color: yellow; */
+}
+
+.main-cards span {
   font-size: 1.25rem;
+  font-weight: 500;
+  text-align: left;
+  /* background-color: blue; */
+}
+
+.card .left-card,
+.card .middle-card,
+.card .right-card {
+  width: calc(100% / 3);
+  padding: 20px;
 }
 
 .card .left-card {
-  width: 50%;
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
-  padding: 25px;
+  border-top-left-radius: 5px;
+  /* background-color: red; */
 }
 
 .card .right-card {
-  width: 50%;
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-  padding: 25px;
+  border-top-right-radius: 5px;
+  /* background-color: green; */
 }
 
-.left-align {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  text-align: left;
+.card .middle-card {
+  /* background-color: blue; */
 }
 
 #conversion-btn {
@@ -199,7 +251,14 @@ body {
 /* Chart  */
 
 .chart {
-  margin: 30px;
+  margin: 20px;
+  user-select: none;
+}
+
+#myChart {
+  background-color: var(--10percwhite);
+  border-radius: 5px;
+  max-height: 300px;
 }
 
 /* Bottom section 'view on flexpool'  */
