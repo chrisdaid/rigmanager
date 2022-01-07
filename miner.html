@@ -72,24 +72,44 @@
             </div>
           </div>
 
+          <div class="gas-pool-container">
+            <div class="gas-pool-bar">
+              <div class="pool-indicator">
+                <p>Pool: <span id="pool-name"></span></p>
+              </div>
+              <div class="gas-indicator">
+                <p>
+                  Gas Price:
+                  <span id="gas-price"></span> <span id="gwei">gwei</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
           <div class="card">
             <div class="main-cards">
-              <div class="left-card left-align">
-                <h1>Pool: <span id="pool-name"></span></h1>
-                <h2>Current Hash: <span id="cur-hash">...</span></h2>
-                <h2>Average Hash: <span id="avg-hash">...</span></h2>
+              <div class="left-card">
+                <h2>Current Hash<br /></h2>
+                <span id="cur-hash">...</span>
               </div>
-              <div class="right-card left-align">
-                <h2>Eth Price: <span id="eth-price">...</span></h2>
+              <div class="middle-card">
+                <h2>Average Hashrate<br /></h2>
+                <span id="avg-hash">...</span>
+              </div>
+              <div class="right-card">
+                <!--  -->
+                <!-- <h2>Eth Price: <span id="eth-price">...</span></h2>
                 <h2>
                   Balance: <span id="balance">...</span
                   ><i class="fa-dollar-sign fas" id="conversion-btn"></i>
-                </h2>
+                </h2> -->
+                <h2>Reported Hashrate:<br /></h2>
+                <span id="rep-hash">...</span>
               </div>
             </div>
             <div class="chart">
               <!-- start  -->
-              <canvas id="myChart" width="80px" height="20px"></canvas>
+              <canvas id="myChart"></canvas>
               <!-- end chart  -->
             </div>
             <div class="bottom-of-card">
