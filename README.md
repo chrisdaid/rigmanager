@@ -1,6 +1,8 @@
 # Crypto Mining Rig Manager
-
 <b><i>(Work in progress)</i></b>
+<br>
+<b>Click <a href="https://christopherdai.com/Projects/rigmanager">here</a> to try out</b>
+
 <br>
 
 <h3>Project Description</h3>
