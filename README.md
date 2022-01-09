@@ -45,4 +45,4 @@ For me personally, I use HiveOS as my workers' operating system for simplicity s
 
 <i>At first, only Ethermine and Flexpool will be supported, but as time goes on, more pools will be supported.</i>
 
-**Project Began October 2021**
+**Project Began November 2021**
