@@ -1,4 +1,7 @@
+import { truncToTwo } from "./truncate.js";
+
 const Chart = window.Chart;
+
 // flexpool function
 const showFPChart = (address) => {
   let ctx = document.getElementById("myChart").getContext("2d");
@@ -6,17 +9,27 @@ const showFPChart = (address) => {
   const effectiveHash = [];
   const averageHash = [];
   const times = [];
+
   let url = `https://api.flexpool.io/v2/miner/chart?coin=eth&address=${address}`;
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
       //144 items in the array for 10 min intervals, 1440 mins in 1 day
-      // console.log(data.result[0].reportedHashrate);
       for (let i = data.result.length - 1; i > 0; i--) {
-        reportedHash.push(data.result[i].reportedHashrate / 10 ** 6);
-        effectiveHash.push(data.result[i].effectiveHashrate / 10 ** 6);
-        averageHash.push(data.result[i].averageEffectiveHashrate / 10 ** 6);
-        times.push(Math.floor(data.result[i].timestamp / 100));
+        let singleItemRepHash = data.result[i].reportedHashrate / 10 ** 6;
+        let singleItemEffHash = data.result[i].effectiveHashrate / 10 ** 6;
+        let singleItemAvgHash =
+          data.result[i].averageEffectiveHashrate / 10 ** 6;
+        reportedHash.push(truncToTwo(singleItemRepHash));
+        effectiveHash.push(truncToTwo(singleItemEffHash));
+        averageHash.push(truncToTwo(singleItemAvgHash));
+        data.result[i].timestamp *= 1000;
+        let eachTimeMS = data.result[i].timestamp;
+        let eachDate = new Date(eachTimeMS);
+        let eachTime = eachDate.toString().split(" ")[4];
+        let formattedTime = eachTime.split("");
+        formattedTime.splice(formattedTime.length - 3, 3);
+        times.push(formattedTime.join(""));
       }
     });
   const labels = times;
@@ -50,7 +63,6 @@ const showFPChart = (address) => {
       borderWidth: 4,
       lineCap: "square",
       lineTension: 0.5,
-      responsive: true,
       pointStyle: "line",
       pointRadius: 5,
       pointBorderColor: "rgba(0,0,0,0)",
@@ -63,7 +75,13 @@ const showFPChart = (address) => {
         y: {
           ticks: {
             callback: function (value) {
-              return value + "MH";
+              if (value < 1000) {
+                return value + "MH";
+              } else if (value < 1000000) {
+                return value / 1000 + "GH";
+              } else {
+                return value / 1000000 + "TH";
+              }
             },
           },
         },
@@ -88,10 +106,17 @@ const showEMChart = (address) => {
     .then((data) => {
       //144 items in the array for 10 min intervals, 1440 mins in 1 day
       for (let i = 0; i < data.data.length; i++) {
-        reportedHash.push(data.data[i].reportedHashrate / 10 ** 6);
-        effectiveHash.push(data.data[i].currentHashrate / 10 ** 6);
-        averageHash.push(data.data[i].averageHashrate / 10 ** 6);
-        times.push(Math.floor(data.data[i].time));
+        reportedHash.push(truncToTwo(data.data[i].reportedHashrate / 10 ** 6));
+        effectiveHash.push(truncToTwo(data.data[i].currentHashrate / 10 ** 6));
+        averageHash.push(truncToTwo(data.data[i].averageHashrate / 10 ** 6));
+        // format time and push into array -> into chart labels
+        data.data[i].time *= 1000;
+        let eachTimeMS = data.data[i].time;
+        let eachDate = new Date(eachTimeMS);
+        let eachTime = eachDate.toString().split(" ")[4];
+        let formattedTime = eachTime.split("");
+        formattedTime.splice(formattedTime.length - 3, 3);
+        times.push(formattedTime.join(""));
       }
     });
   const labels = times;
@@ -138,7 +163,13 @@ const showEMChart = (address) => {
         y: {
           ticks: {
             callback: function (value) {
-              return value + "MH";
+              if (value < 1000) {
+                return value + "MH";
+              } else if (value < 1000000) {
+                return value / 1000 + "GH";
+              } else {
+                return value / 1000000 + "TH";
+              }
             },
           },
         },
