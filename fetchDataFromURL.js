@@ -12,7 +12,7 @@ if (!queryStr) {
   /////////////////////////////////////////////
   // Change the address text to the submitted address
   const addressText = document.querySelector(".address");
-  addressText.innerText = address;
+  addressText.textContent = address;
   /////////////////////////////////////////////
   // Make copy address button work
   const copyBtn = document.querySelector(".copy-btn");
@@ -25,6 +25,14 @@ if (!queryStr) {
     copyBtnTooltip.innerText = "Copied";
   });
   /////////////////////////////////////////////
+  // Set gas price from gasprice.io API
+  const gasPrice = document.getElementById("gas-price");
+  fetch("https://api.gasprice.io/v1/estimates")
+    .then((res) => res.json())
+    .then((data) => {
+      gasPrice.innerText = Math.ceil(data.result.baseFee);
+    });
+  /////////////////////////////////////////////
   // Change the 'View miner on __pool__ ' link
   const link = document.querySelector(".bottom-of-card").querySelector("a");
   const linkText = document.getElementById("pool-link-text");
@@ -32,22 +40,29 @@ if (!queryStr) {
   const poolText = document.getElementById("pool-name");
   const balance = document.getElementById("balance");
   const ethPrice = document.getElementById("eth-price");
-  const avgHash = document.getElementById("avg-hash");
-  const curHash = document.getElementById("cur-hash");
+
   let currentEthPrice = 0;
   let currentBalance = 0;
-  let currentHashrate = 0;
-  let averageHashrate = 0;
 
-  // NOT Flexpool API => Nomics API to fetch ETH Price
-  fetch(
-    "https://api.nomics.com/v1/currencies/ticker?key=d0a9300b92d3fb893e3ee715908ad2cbd3733fda&ids=BTC,ETH,BNB&interval=1d,30d&convert=USD&per-page=100&page=1"
-  )
-    .then((res) => res.json())
-    .then((data) => {
-      currentEthPrice = truncToTwo(data[1].price);
-      ethPrice.innerText = `$${truncToTwo(data[1].price)}`;
-    });
+  const curHash = document.getElementById("cur-hash");
+  let currentHashrate = 0;
+  const avgHash = document.getElementById("avg-hash");
+  let averageHashrate = 0;
+  const repHash = document.getElementById("rep-hash");
+  let reportedHashrate = 0;
+
+  // NOT Flexpool API => Coinbase PRO API fetch ETH Price
+
+  async function fetchEthPrice() {
+    let response = await fetch(
+      "https://api.pro.coinbase.com/products/ETH-USD/ticker"
+    );
+    return response.json();
+  }
+  fetchEthPrice().then((jsonData) => {
+    currentEthPrice = jsonData.price;
+    ethPrice.innerText = `$${jsonData.price}`;
+  });
 
   if (pool == "flexpool") {
     // set pool text to Flexpool
@@ -57,7 +72,7 @@ if (!queryStr) {
     linkText.innerText = "Flexpool";
     // set chart
     showFPChart(address);
-    // fetch flexpool data for hashrate
+    // fetch flexpool data for balance and set estimated earnings <----- NOT IMPLEMENTED YET *******
     fetch(
       `https://api.flexpool.io/v2/miner/balance?coin=eth&address=${address}`
     )
@@ -70,24 +85,31 @@ if (!queryStr) {
           balance.innerText = currentBalance;
         }
       });
-
+    // fetch flexpool data for hashrate
     fetch(`https://api.flexpool.io/v2/miner/stats?coin=eth&address=${address}`)
       .then((res) => res.json())
       .then((data) => {
         if (
           data.result.averageEffectiveHashrate === 0 &&
-          data.result.currentEffectiveHashrate === 0
+          data.result.currentEffectiveHashrate === 0 &&
+          data.result.reportedHashrate === 0
         ) {
           avgHash.innerText = "0MH";
           curHash.innerText = "0MH";
+          repHash.innerText = "OMH";
           // once all data is loaded, fade in the content
           document.querySelector("main").classList.add("fade-in");
           document.querySelector("main").style.visibility = "visible";
         } else {
+          // average hash
           averageHashrate = hashrateCalc(data.result.averageEffectiveHashrate);
           avgHash.innerText = averageHashrate;
+          // current hash
           currentHashrate = hashrateCalc(data.result.currentEffectiveHashrate);
           curHash.innerText = currentHashrate;
+          // reported hash
+          reportedHashrate = hashrateCalc(data.result.reportedHashrate);
+          repHash.innerText = reportedHashrate;
           // once all data is loaded, fade in the content
           document.querySelector("main").classList.add("fade-in");
           document.querySelector("main").style.visibility = "visible";
@@ -113,29 +135,37 @@ if (!queryStr) {
     fetch(`https://api.ethermine.org/miner/:${address}/currentStats`)
       .then((res) => res.json())
       .then((data) => {
-        // if wrong address AND api is online, just put 0 for hashrate
+        // if wrong address -> valid ETH but not on ethermine -> AND api is online, just put 0 for hashrate
         if (data.data == "NO DATA" && data.status === "OK") {
-          avgHash.innerText = "0MH";
-          curHash.innerText = "0MH";
+          console.log(
+            "-------------------- WRONG ADDRESS FOR POOL BUT VALID ETH ADDRESS"
+          );
+          avgHash.innerText = "0.00MH";
+          curHash.innerText = "0.00MH";
+          repHash.innerText = "0.00MH";
           balance.innerText = currentBalance;
           // once all data is loaded, fade in the content
-          document.querySelector("main").classList.add("fade-in");
-          document.querySelector("main").style.visibility = "visible";
+          document.querySelector("#main-content").classList.add("fade-in");
+          document.querySelector("#main-content").style.visibility = "visible";
         } else {
+          // average hash
           averageHashrate = hashrateCalc(data.data.averageHashrate);
           avgHash.innerText = averageHashrate;
           // current hash
           currentHashrate = hashrateCalc(data.data.currentHashrate);
           curHash.innerText = currentHashrate;
+          // reported hash
+          reportedHashrate = hashrateCalc(data.data.reportedHashrate);
+          repHash.innerText = reportedHashrate;
           // balance
           currentBalance = truncToFive(data.data.unpaid / 10 ** 18);
+          // currently broken, MAKE BALANCE ELEMENT
           balance.innerText = currentBalance;
-
           // active workers
           console.log(data.data.activeWorkers);
           // once all data is loaded, fade in the content
-          document.querySelector("main").classList.add("fade-in");
-          document.querySelector("main").style.visibility = "visible";
+          document.querySelector("#main-content").classList.add("fade-in");
+          document.querySelector("#main-content").style.visibility = "visible";
         }
       });
   }
@@ -172,7 +202,6 @@ if (!queryStr) {
     conversionBtn.classList.toggle("fab");
     conversionBtn.classList.toggle("fa-ethereum");
     if (conversionBtn.classList[1] === "fab") {
-      console.log(currentEthPrice);
       if (currentBalance === 0) {
         balance.textContent = "$0";
       } else {
@@ -180,7 +209,6 @@ if (!queryStr) {
           "$" + truncToTwo(currentEthPrice * currentBalance);
       }
     } else if (conversionBtn.classList[1] === "fas") {
-      console.log("show eth amount");
       balance.textContent = `${currentBalance}`;
     }
   });
